@@ -6,6 +6,21 @@ export default createGlobalStyle `
     padding: 0;
     box-sizing: border-box;
     outline: 0ch;
+
+    ::-webkit-scrollbar {
+    width: 10px;
+    background-color: #f5f5f5;
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #f5f5f5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #112a4a;
+  }
   }
 
   body {
@@ -15,6 +30,7 @@ export default createGlobalStyle `
 
     ::-webkit-input-placeholder {
     color: #4E546D
+
   }
   }
 
