@@ -15,15 +15,15 @@ export const Container = styled.div`
 
 const toastTypeVariantions = {
   info: css`
-    background: -webkit-linear-gradient(-90deg,  #264b8a -40%, #ebf8ff 100%);
+    background: #ebf8ff;
     color: #264b8a;
   `,
   sucess: css`
-    background: -webkit-linear-gradient(-90deg,  #2e656a -40%, #e6fffa 100%);
+    background: #e6fffa;
     color: #2e656a;
 `,
   error: css`
-    background: -webkit-linear-gradient(-90deg,  #98463f -40%, #fddede 100%);
+    background: #fddede;
     color: #98463f;
     `,
 }
