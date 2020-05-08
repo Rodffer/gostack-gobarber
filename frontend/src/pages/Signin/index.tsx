@@ -55,7 +55,11 @@ const SignIn: React.FC = () => {
           formRef.current?.setErrors(errors);
         }
 
-        addToast();
+        addToast({
+          type: 'error',
+          title: 'Erro de autenticação',
+          description: 'Combinação de e-mail ou senha invalido'
+        });
       }
   }, [signIn, addToast]);
   return (
