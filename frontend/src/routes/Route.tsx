@@ -12,11 +12,11 @@ const Route: React.FC<ReactProps> = ({ isPrivate = false, component: Component, 
   const { user } = useAuth();
 
   return (
-    <ReactRoute {...rest} render={() => {
+    <ReactRoute {...rest} render={({ location }) => {
       return isPrivate === !!user ? (
         <Component />
       ) : (
-        <Redirect to={{ pathname: isPrivate ? '/' : '/dashboard' }}/>
+        <Redirect to={{ pathname: isPrivate ? '/' : '/dashboard', state: { from: location}, }}/>
       )
     }}
     />
