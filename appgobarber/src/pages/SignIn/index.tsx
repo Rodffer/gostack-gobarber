@@ -1,24 +1,52 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, KeyboardAvoidingView, View, ScrollView } from 'react-native';
+
+import Icon from 'react-native-vector-icons/Feather';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
 import logoImg from '../../assets/logo.png';
 
-import { Container, Title } from './styles';
+import {
+  Container,
+  Title,
+  ForgotPassword,
+  ForgotPasswordText,
+  CreateAccountButton,
+  CreateAccountButtonText,
+} from './styles';
 
 const SignIn: React.FC = () => {
   return (
-    <Container>
-      <Image source={logoImg} />
-      <Title>Login</Title>
+    <>
+      <KeyboardAvoidingView style={{ flex: 1 }} enabled>
+        <ScrollView
+          contentContainerStyle={{ flex: 1 }}
+          keyboardShouldPersistTaps="handled"
+        >
+          <Container>
+            <Image source={logoImg} />
+            <View>
+              <Title>Login</Title>
+            </View>
 
-      <Input name="mail" icon="mail" placeholder="E-mail" />
-      <Input name="password" icon="lock" placeholder="Senha" />
+            <Input name="mail" icon="mail" placeholder="E-mail" />
+            <Input name="password" icon="lock" placeholder="Senha" />
 
-      <Button>Entrar</Button>
-    </Container>
+            <Button>Entrar</Button>
+
+            <ForgotPassword>
+              <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
+            </ForgotPassword>
+          </Container>
+        </ScrollView>
+      </KeyboardAvoidingView>
+      <CreateAccountButton>
+        <Icon name="log-in" size={20} color="#264b8a" />
+        <CreateAccountButtonText>Criar conta</CreateAccountButtonText>
+      </CreateAccountButton>
+    </>
   );
 };
 
