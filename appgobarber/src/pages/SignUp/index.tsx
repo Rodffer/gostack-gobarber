@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { Image, KeyboardAvoidingView, View, ScrollView } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Feather';
@@ -17,6 +17,10 @@ const SignUp: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
   const navigation = useNavigation();
 
+  const handleSignIn = useCallback((data: object) => {
+    console.log(data);
+  }, []);
+
   return (
     <>
       <KeyboardAvoidingView style={{ flex: 1 }} enabled>
@@ -30,11 +34,22 @@ const SignUp: React.FC = () => {
               <Title>Crie sua conta</Title>
             </View>
 
-            <Form ref={formRef} onSubmit={() => {}}>
+            <Form
+              ref={formRef}
+              onSubmit={(data) => {
+                console.log(data);
+              }}
+            >
               <Input name="name" icon="user" placeholder="Nome" />
               <Input name="mail" icon="mail" placeholder="E-mail" />
               <Input name="password" icon="lock" placeholder="Senha" />
-              <Button>Entrar</Button>
+              <Button
+                onPress={() => {
+                  formRef.current?.submitForm();
+                }}
+              >
+                Entrar
+              </Button>
             </Form>
           </Container>
         </ScrollView>
